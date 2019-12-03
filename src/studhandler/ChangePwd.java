@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class ChangePwd
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/ChangePwd")
+public class ChangePwd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public ChangePwd() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,26 +28,12 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String studentNo = request.getParameter("st_no");
 		String studentPwd = request.getParameter("st_pwd");
-		response.setContentType("text/html;charset=utf-8");
-		request.setCharacterEncoding("UTF-8");
 		if (studentNo == null || studentPwd == null) { // ²ÎÊý´íÎó			
 			response.getWriter().append("[ERROR] Para");
 		}
 		else {
-			int loginStatus = SQLBridge.Login(studentNo, studentPwd);
-			switch (loginStatus) {
-			case 0:
-				//request.getRequestDispatcher("/admin.jsp").forward(request, response);
-				response.sendRedirect("admin.jsp");
-				break;
-			case 1:
-				//request.getRequestDispatcher("/student.jsp").forward(request, response);
-				response.sendRedirect("student.jsp?st_no=" + studentNo);
-				break;
-			case -1:
-				response.getWriter().append("µÇÂ½´íÎó£¡");
-				break;
-			}
+			SQLBridge.chpwd(studentNo, studentPwd);
+			response.sendRedirect("index.jsp");
 		}
 	}
 
