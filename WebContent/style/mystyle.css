@@ -1,20 +1,105 @@
+body {
+  text-align: center;
+}
+
+.login-card {
+  margin: 0 auto;
+  padding: 15px;
+  width: 380px;
+  background-color: #eeeeee;
+  border-radius: 6px;
+  box-shadow: 0 0 5px #ddd;
+}
+
+.header {
+  position: relative;
+  margin: 0 auto;
+}
+
 .login-input {
-    position:relative;
-    display:block;
-    width:300px;
-    outline: none;
-    padding: 3px 0 3px 3px;
-    margin-left:auto;
-    margin-right:auto;
-    border: #ddd 1px solid;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+  position: relative;
+  display: inline;
+  outline: none;
+  padding: 3px 0 3px 3px;
+  border: #ddd 1px solid;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .login-input:focus {
   box-shadow: 0 0 5px rgb(41, 123, 216);
   border: rgb(41, 123, 216) 1px solid;
+}
+
+.login-wrapper {
+  margin: 0 auto;
+  padding: 5px;
+  width: 350px;
+}
+
+
+.stud-card {
+  margin: 0 auto;
+  padding: 15px;
+  width: 600px;
+  background-color: #FAFAFA;
+  border-radius: 6px;
+  box-shadow: 0 0 5px #DDD;
+}
+
+.stud-com {
+  text-align: left;
+}
+
+.stud-bottom {
+  color: #AAA;
+  text-shadow: 1px 1px 1px #EEE;
+}
+
+.stud-rename:link {color:#AAA;}
+.stud-rename:visited {color:#AAA;}
+.stud-rename:hover {color:#777;}
+.stud-rename:active {color:#CCC;}
+
+.stud-course:link {color:rgb(104, 130, 177);}
+.stud-course:visited {color:rgb(104, 130, 177);}
+.stud-course:hover {color:rgb(104, 130, 177);}
+.stud-course:active {color:rgb(104, 130, 177);}
+
+/* Border styles */
+#table-course thead,
+#table-course tr {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgb(189, 210, 230);
+}
+
+#table-course {
+  margin: 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgb(189, 210, 230);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(189, 210, 230);
+}
+
+/* Padding and font style */
+#table-course td,
+#table-course th {
+  padding: 5px 10px;
+  font-size: 12px;
+  color: rgb(104, 130, 177);
+}
+
+/* Alternating background colors */
+#table-course tr:nth-child(even) {
+  background: rgb(189, 210, 230);
+}
+
+#table-course tr:nth-child(odd) {
+  background: #fff;
 }
