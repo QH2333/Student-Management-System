@@ -37,15 +37,13 @@ public class Login extends HttpServlet {
 			int loginStatus = SQLBridge.Login(studentNo, studentPwd);
 			switch (loginStatus) {
 			case 0:
-				//request.getRequestDispatcher("/admin.jsp").forward(request, response);
-				response.sendRedirect("admin.jsp");
+				response.sendRedirect("admin.jsp"); // 跳转到管理员界面
 				break;
 			case 1:
-				//request.getRequestDispatcher("/student.jsp").forward(request, response);
-				response.sendRedirect("student.jsp?st_no=" + studentNo);
+				response.sendRedirect("student.jsp?login_status=1&st_no=" + studentNo); // 跳转到学生界面
 				break;
-			case -1:
-				response.getWriter().append("登陆错误！");
+			case -1: // 登录错误
+				response.sendRedirect("index.jsp?login_error=1");
 				break;
 			}
 		}
