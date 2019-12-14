@@ -375,4 +375,38 @@ public class SQLBridge {
         }
     	return retVal;
     }
+    
+    public static ArrayList<StudentInfo> getAllStud() {
+    	Connection conn = null;
+        Statement stmt = null;
+        StudentInfo curStud = null;
+    	ArrayList<StudentInfo> retVal = new ArrayList<StudentInfo>();
+    	try {
+    		Class.forName(JDBC_DRIVER); // 注册 JDBC 驱动
+            conn = DriverManager.getConnection(DB_URL,USER,PASS); // 打开链接
+            stmt = conn.createStatement();
+    		ResultSet rsResult = stmt.executeQuery(String.format("select * from student")); // 执行查询    		
+    		while (rsResult.next()) {
+    			curStud = new StudentInfo(rsResult.getString("st_no"), rsResult.getString("st_name"), rsResult.getInt("st_gender"), rsResult.getString("st_pwd"));
+    			retVal.add(curStud);
+    		}
+    		rsResult.close();
+    		stmt.close();
+            conn.close();
+    	} catch(SQLException se){ // 处理 JDBC 错误
+            se.printStackTrace();
+        } catch(Exception e){ // 处理 Class.forName 错误
+            e.printStackTrace();
+        } finally{ // 关闭资源
+            try {
+                if(stmt!=null) stmt.close();
+            }catch(SQLException se2) {} // 什么都不做
+            try {
+                if(conn!=null) conn.close();
+            } catch(SQLException se) {
+                se.printStackTrace();
+            }
+        }
+    	return retVal;
+    }
 }

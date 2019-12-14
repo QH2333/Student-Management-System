@@ -61,6 +61,15 @@ body {
   text-shadow: 1px 1px 1px #EEE;
 }
 
+.admin-card {
+  margin: 0 auto;
+  padding: 15px;
+  width: 600px;
+  background-color: #fafafa;
+  border-radius: 6px;
+  box-shadow: 0 0 5px #DDD;
+}
+
 .stud-rename:link {color:#AAA;}
 .stud-rename:visited {color:#AAA;}
 .stud-rename:hover {color:#777;}
@@ -70,6 +79,11 @@ body {
 .stud-course:visited {color:rgb(104, 130, 177);}
 .stud-course:hover {color:rgb(104, 130, 177);}
 .stud-course:active {color:rgb(104, 130, 177);}
+
+.admin_mod:link {color:rgb(104, 130, 177);}
+.admin_mod:visited {color:rgb(104, 130, 177);}
+.admin_mod:hover {color:rgb(104, 130, 177);}
+.admin_mod:active {color:rgb(104, 130, 177);}
 
 .styled-table {
   border-width: 1px;

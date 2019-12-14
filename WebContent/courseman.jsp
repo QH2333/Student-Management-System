@@ -15,11 +15,7 @@
     <div class="admin-card">
         <p class="stud-com">管理员好！</p>
         <br/>
-        <p class="stud-com">请选择你要管理的表格：</p>
-        <button class="weui-btn weui-btn_primary" type="button" onclick="window.location.href='studman.jsp'">学生表</button>
-        <button class="weui-btn weui-btn_primary" type="button" onclick="window.location.href='courseman.jsp'">课程表</button>
-        <button class="weui-btn weui-btn_primary" type="button" onclick="window.location.href='scoreman.jsp'">分数表</button>
-        <br/>
+        <p class="stud-com">课程表：</p>
     </div>
     <br/>
 </body>
