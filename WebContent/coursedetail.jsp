@@ -16,8 +16,9 @@
 	%>
 	<br/>
     <div class="stud-card">
-	课程均分：<%out.print(String.format("%.2f", SQLBridge.getCourseAvg(c_no))); %> <br/>
-	你的排名：<%out.print(SQLBridge.getCourseRank(c_no, st_no)); %> <br/>
+	课程名称: <b> <%out.print(SQLBridge.getCourseName(c_no)); %> </b> <br/>
+	课程均分：<b> <%out.print(String.format("%.2f", SQLBridge.getCourseAvg(c_no))); %> </b> <br/>
+	你的排名：<b> <%out.print(SQLBridge.getCourseRank(c_no, st_no)); %> </b> <br/>
 	</div>
 </body>
 </html>

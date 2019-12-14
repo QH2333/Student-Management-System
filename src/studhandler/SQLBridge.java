@@ -2,7 +2,6 @@ package studhandler;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 //import org.json.*;
 
 public class SQLBridge {
@@ -153,6 +152,38 @@ public class SQLBridge {
     	return retVal;
     }
     
+    public static float getAvg(String st_no) {
+    	Connection conn = null;
+        Statement stmt = null;
+        float retVal = -1;
+    	try {
+    		Class.forName(JDBC_DRIVER); // 注册 JDBC 驱动
+            conn = DriverManager.getConnection(DB_URL,USER,PASS); // 打开链接
+            stmt = conn.createStatement();
+    		ResultSet rsResult = stmt.executeQuery(String.format("select avg(marks) as ave from score where st_no=\"%s\"",st_no)); // 执行查询    		
+    		if (rsResult.next()) {
+    			retVal = rsResult.getInt("ave");
+    		}
+    		rsResult.close();
+    		stmt.close();
+            conn.close();
+    	} catch(SQLException se){ // 处理 JDBC 错误
+            se.printStackTrace();
+        } catch(Exception e){ // 处理 Class.forName 错误
+            e.printStackTrace();
+        } finally{ // 关闭资源
+            try {
+                if(stmt!=null) stmt.close();
+            }catch(SQLException se2) {} // 什么都不做
+            try {
+                if(conn!=null) conn.close();
+            } catch(SQLException se) {
+                se.printStackTrace();
+            }
+        }
+    	return retVal;
+    }
+    
     public static int getAvgRank(String st_no) {
     	Connection conn = null;
         Statement stmt = null;
@@ -264,6 +295,38 @@ public class SQLBridge {
     		ResultSet rsResult = stmt.executeQuery(String.format("SELECT avg(marks) AS averageScore FROM score WHERE c_no=\"%s\"", c_no)); // 执行查询    		
     		if (rsResult.next()) {
     			retVal = rsResult.getFloat("averageScore");
+    		}
+    		rsResult.close();
+    		stmt.close();
+            conn.close();
+    	} catch(SQLException se){ // 处理 JDBC 错误
+            se.printStackTrace();
+        } catch(Exception e){ // 处理 Class.forName 错误
+            e.printStackTrace();
+        } finally{ // 关闭资源
+            try {
+                if(stmt!=null) stmt.close();
+            }catch(SQLException se2) {} // 什么都不做
+            try {
+                if(conn!=null) conn.close();
+            } catch(SQLException se) {
+                se.printStackTrace();
+            }
+        }
+    	return retVal;
+    }
+    
+    public static String getCourseName(String c_no) {
+    	Connection conn = null;
+        Statement stmt = null;
+        String retVal = null;
+    	try {
+    		Class.forName(JDBC_DRIVER); // 注册 JDBC 驱动
+            conn = DriverManager.getConnection(DB_URL,USER,PASS); // 打开链接
+            stmt = conn.createStatement();
+    		ResultSet rsResult = stmt.executeQuery(String.format("SELECT * FROM course WHERE c_no=\"%s\"", c_no)); // 执行查询    		
+    		if (rsResult.next()) {
+    			retVal = rsResult.getString("c_name");
     		}
     		rsResult.close();
     		stmt.close();

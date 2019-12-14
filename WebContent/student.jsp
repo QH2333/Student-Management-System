@@ -16,7 +16,7 @@
         <%  StudentInfo studInf = SQLBridge.getStudInfo(request.getParameter("st_no"));
             ArrayList<CourseInfo> allCourse = SQLBridge.getAllScore(studInf.studentNo);
         %>
-        <p class="stud-com">你好，<b><%out.print(studInf.studentName); %></b>同学！</p>
+        <p class="stud-com">你好，<b><%=studInf.studentName %></b>同学！</p>
         <br/>
         <p class="stud-com">你的<b>课程分数</b>：</p>
         <table id="table-course">
@@ -36,8 +36,8 @@
             %>
         </table>
         <br/>
-        <p class="stud-com">你的<b>均分排名</b>：
-        <%out.print(SQLBridge.getAvgRank(studInf.studentNo));%>/<%out.print(SQLBridge.getStudCount());%></p>
+        <p class="stud-com">你的<b>均分</b>：<%=SQLBridge.getAvg(studInf.studentNo) %>
+        <p class="stud-com">你的<b>均分排名</b>：<%=SQLBridge.getAvgRank(studInf.studentNo) %> / <%=SQLBridge.getStudCount() %></p>
     </div>
     <br/>
     <p class="stud-bottom">©QH2333 · <a class="stud-rename" href="<%out.print(String.format("./chpwd.jsp?st_no=%s", studInf.studentNo));%>">修改密码</a></p>

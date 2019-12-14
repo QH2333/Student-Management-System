@@ -4,10 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="./style/weui.css"/>
-<link rel="stylesheet" href="./style/mystyle.css"/>
-<title>学生信息管理系统 - 登录</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./style/weui.css"/>
+	<link rel="stylesheet" href="./style/mystyle.css"/>
+	<title>学生信息管理系统 - 登录</title>
 </head>
 <body>
     <%  String stat = (String)request.getParameter("login_error");
